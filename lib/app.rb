@@ -32,12 +32,23 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     if params[:player_1_attack]
-      session[:player_1_HP] -= 20
+      attack(:player_1_HP)
     elsif params[:player_2_attack]
-      session[:player_2_HP] -= 20
+      attack(:player_2_HP)
     end
     redirect('/play')
   end
 
+  def attack(player)
+    session[player] -= rand(10..20)
+  end
+
   run! if app_file == $0
 end
+
+  private
+
+  def hit
+  end
+# Ideas:
+# TurnOrder class (can implement += to skip player turns etc)
