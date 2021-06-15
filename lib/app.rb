@@ -30,5 +30,15 @@ class Battle < Sinatra::Base
       erb :game
   end
 
+  post '/attack_1' do
+    session[:player_1_HP] -= 20
+    redirect('/play')
+  end
+
+  post '/attack_2' do
+    session[:player_2_HP] -= 20
+    redirect('/play')
+  end
+
   run! if app_file == $0
 end
