@@ -1,9 +1,10 @@
-require 'sinatra/base'
+require 'sinatra'
+require 'sinatra/reloader' if development?
 
 class Battle < Sinatra::Base
 
   get '/' do
-    'Testing infrastructure working!'
+    erb(:index)
   end
 
   run! if app_file == $0
