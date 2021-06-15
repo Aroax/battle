@@ -10,10 +10,8 @@ feature "it shows hit points" do
   let (:max_HP) {HitPoints::MAX_HP}
 
   scenario "it displays player 2's hit points" do
-    visit('/')
-    fill_in :player_1, with: "Red"
-    fill_in :player_2, with: "Blue"
-    click_button("Start")
+    sign_in_and_play
+    
     expect(page).to have_content "Hit points: 100"
   end
 end

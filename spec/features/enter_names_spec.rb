@@ -4,11 +4,8 @@ require 'capybara/rspec'
 
 feature "it's possible to enter player names" do
   scenario 'entering names' do
-    visit('/')
-    fill_in :player_1, with: "Super Mario"
-    fill_in :player_2, with: "Luigi"
-    click_button("Start")
+    sign_in_and_play
 
-    expect(page).to have_content "Super Mario" && "Luigi"
+    expect(page).to have_content "Red" && "Blue"
   end
 end
