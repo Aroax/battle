@@ -1,4 +1,5 @@
 require_relative '../../lib/app'
+require_relative '../../lib/hitpoints'
 require 'capybara/rspec'
 
 feature 'Testing infrastructure' do

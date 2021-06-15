@@ -1,4 +1,5 @@
 require_relative '../../lib/app'
+require_relative '../../lib/hitpoints'
 require 'capybara/rspec'
 
 feature "it's possible to enter player names" do
@@ -8,6 +9,6 @@ feature "it's possible to enter player names" do
     fill_in :player_2, with: "Luigi"
     click_button("Start")
 
-    expect(page).to have_content "Super Mario vs. Luigi"
+    expect(page).to have_content "Super Mario" && "Luigi"
   end
 end
