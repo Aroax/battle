@@ -1,11 +1,17 @@
 <div>
-  <%= @player_1%>, Hit points: <%= @player_1_HP %>
-    <p>
-    vs.
-    <p>
-    <%= @player_2%>, Hit points: <%= @player_2_HP %>
+  <h2><%= @player_1%></h2>   <h3>(Hit points: <%= @player_1_HP %>)</h3>
+  <p>
+  <h3>vs.<h3>
+  <p>
+  <h2><%= @player_2%></h2>   <h3>(Hit points: <%= @player_2_HP %>)</h3>
 </div>
 <p>
+
+  <div>
+    <%= @hit_message%>
+  </div>
+
+  <p>
 <form action="/attack" method="post">
   <input type="submit" name="player_1_attack" value="Attack Player 1">
 </form>

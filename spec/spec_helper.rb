@@ -114,4 +114,8 @@ require_relative 'features/web_helpers.rb'
 # tell Capybara about our app class
 Capybara.app = Battle
 
+# Adding custom matchers
+Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
+
+
 end

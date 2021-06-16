@@ -26,7 +26,7 @@ class Battle < Sinatra::Base
       @player_2 = session[:player_2]
       @player_1_HP = session[:player_1_HP]
       @player_2_HP = session[:player_2_HP]
-
+      @hit_message = session[:hit_message]
       erb :game
   end
 
@@ -40,7 +40,9 @@ class Battle < Sinatra::Base
   end
 
   def attack(player)
-    session[player] -= rand(10..20)
+    damage = rand(10..20)
+    session[player] -= damage
+    session[:hit_message] = "The attack hits for #{damage} HP!"
   end
 
   run! if app_file == $0
