@@ -8,7 +8,7 @@ require_relative '../../lib/hitpoints'
 
 feature "it has attack feature" do
   scenario "player 1 can attack player 2" do
-    sign_in_and_play
+    sign_in_and_play_two_player
     click_button('Attack Player 2')
     expect(page).to have_content "The attack hits"
 

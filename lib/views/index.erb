@@ -1,11 +1,14 @@
 <h1>It's time to BATTLE!</h1>
-<p>
-<p>
-<h2>Enter player names</h2>
-<form action="/game" method="post">
-  Player 1:  <input type="text" name="player_1">
   <p>
-  Player 2:  <input type="text" name="player_2">
-  <p>
-  <input type="submit" value="Start">
-</form>
+    <p>
+      <form action="/player-select" method="post">
+        <p>
+          <label for="mode-select">Number of players:  </label>
+            <select name="Mode">
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+        </p>
+      
+        <p> <input type="submit" value="Start">
+      </form>
