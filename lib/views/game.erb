@@ -1,3 +1,4 @@
+
 <div>
   <h2><%= @player_1%></h2>   <h3>(Hit points: <%= @player_1_HP %>)</h3>
   <p>
@@ -20,3 +21,23 @@
 <form action="/attack" method="post">
   <input type="submit" name="player_2_attack" value="Attack Player 2">
 </form>
+
+
+
+<div>
+
+    <audio autoplay id="myaudio">
+      <source src="https://dl62.youtubetomp3music.com/file/youtube2Jmty_NiaXc192.mp3?fn=Pokemon%20Red%2C%20Yellow%2C%20Blue%20Battle%20Music-%20Trainer.mp3">
+    </audio>
+
+    <script>
+      var audio = document.getElementById("myaudio");
+      audio.volume = 0.2;
+    </script>
+
+</div>
+  <!-- <audio controls autoplay>
+  <source src="https://dl62.youtubetomp3music.com/file/youtube2Jmty_NiaXc192.mp3?fn=Pokemon%20Red%2C%20Yellow%2C%20Blue%20Battle%20Music-%20Trainer.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio> -->
+<!-- <footer><iframe id="musicframe" src=music.html> </iframe></footer> -->
