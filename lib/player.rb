@@ -7,6 +7,7 @@ class Player
   def initialize(name, hitpoints=MAX_HP)
     @name = name
     @hit_points = hitpoints
+    @alert = ""
   end
 
   def attack(player)
@@ -30,7 +31,7 @@ class Player
   end
 
   def update_alert(string)
-    alert = string
+    @alert = string
   end
 
   # damage = rand(10..20)

@@ -39,13 +39,7 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-      @player_1 = session[:player_1]
-      @player_2 = session[:player_2]
-      @player_1_name = @player_1.name
-      @player_2_name = @player_2.name
-      @player_1_HP = @player_1.hit_points
-      @player_2_HP = @player_2.hit_points
-      @hit_message = session[:hit_message]
+      @player_1_name, @player_1_HP, @player_2_name, @player_2_HP, @hit_message = extract_session_state
       erb :game
   end
 
@@ -53,13 +47,10 @@ class Battle < Sinatra::Base
     player_1 = session[:player_1]
     player_2 = session[:player_2]
     if params[:player_1_attack]
-      player_1.attack(player_2)
-      session[:hit_message] = player_1.alert
+      session[:hit_message] = player_1.attack(player_2)
     elsif params[:player_2_attack]
-      player_2.attack(player_1)
-      session[:hit_message] = player_2.alert
+      session[:hit_message] = player_2.attack(player_1)
     end
-    # session[:hit_message] = "The attack hits!"
     redirect('/play')
   end
 
@@ -70,8 +61,22 @@ class Battle < Sinatra::Base
   #   session[:hit_message] = "The attack hits for #{damage} HP!"
   # end
 
+
+  def extract_session_state
+    @player_1 = session[:player_1]
+    @player_2 = session[:player_2]
+    @player_1_name = @player_1.name
+    @player_2_name = @player_2.name
+    @player_1_HP = @player_1.hit_points
+    @player_2_HP = @player_2.hit_points
+    @hit_message = session[:hit_message]
+    return @player_1_name, @player_1_HP, @player_2_name, @player_2_HP, @hit_message
+  end
+
+
   run! if app_file == $0
 end
+
 
   private
 
