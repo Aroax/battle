@@ -3,6 +3,7 @@ require 'sinatra/reloader' if development?
 require_relative 'hitpoints'
 require_relative 'player'
 require_relative 'game'
+require_relative 'attack'
 
 class Battle < Sinatra::Base
 
@@ -42,9 +43,10 @@ class Battle < Sinatra::Base
   post '/attack' do
     @game = session[:game]
     if params[:player_1_attack]
-      session[:hit_message] = @game.attack(@game.player_2)
+      session[:hit_message] = Attack.run(@game.opponent(@game.current_turn))
     elsif params[:player_2_attack]
-      session[:hit_message] = @game.attack(@game.player_1)
+      session[:hit_message] = Attack.run(@game.opponent(@game.current_turn))
+      # @game.attack(@game.player_1)
     end
     @game.switch_turns
     redirect('/play')

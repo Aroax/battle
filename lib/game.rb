@@ -14,21 +14,11 @@ class Game
     @players.last
   end
 
-  def attack(player)
-    chance = rand(1..10)
-    case chance
-    when 4..10
-      player.take_damage
-    when 1..3
-      player.miss
-    end
-  end
-
   def switch_turns
     @current_turn = opponent(current_turn)
   end
 
-  private
+  # private
 
   def opponent(current_player)
     @players.select { |player| player != current_player }.first

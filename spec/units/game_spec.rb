@@ -19,12 +19,12 @@ describe Game do
      end
    end
 
-   describe '#attack' do
-    it 'damages the player' do
-      expect(game.player_2).to receive(:take_damage)
-      game.attack(game.player_2)
-    end
-  end
+  #  describe '#attack' do
+  #   it 'damages the player' do
+  #     expect(game.player_2).to receive(:take_damage)
+  #     game.attack(game.player_2)
+  #   end
+  # end
 
   context 'when considering turns'
     describe '#current_turn' do
@@ -39,6 +39,6 @@ describe Game do
         expect(game.current_turn).to eq player_2
       end
     end
-  
+
 
 end
