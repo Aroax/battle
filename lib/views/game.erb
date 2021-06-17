@@ -13,6 +13,10 @@
   </div>
 
   <p>
+  <div>
+    <h3> It's <%= @game.current_turn.name %>'s turn </h3>
+  </div>
+  <p>
 <form action="/attack" method="post">
   <input type="submit" name="player_1_attack" value="Attack Player 1">
 </form>

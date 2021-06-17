@@ -46,6 +46,7 @@ class Battle < Sinatra::Base
     elsif params[:player_2_attack]
       session[:hit_message] = @game.attack(@game.player_1)
     end
+    @game.switch_turns
     redirect('/play')
   end
 
