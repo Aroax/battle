@@ -15,4 +15,11 @@ feature "players can switch turns" do
     expect(page).to have_content "Blue's turn"
     expect(page).not_to have_content "Red's turn"
   end
+
+  scenario "Page only displays the opponent's attack button on your turn" do
+    sign_in_and_play_two_player
+    expect(page).to have_selector(:link_or_button, 'Attack Player 2')
+    expect(page).not_to have_selector(:link_or_button, 'Attack Player 1')
+  end
+
 end
