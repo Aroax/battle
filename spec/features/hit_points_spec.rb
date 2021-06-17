@@ -12,6 +12,6 @@ feature "it shows hit points" do
   scenario "it displays player 2's hit points" do
     sign_in_and_play_two_player
 
-    expect(page).to have_content "Hit points: 100"
+    expect(page).to have_content "Hit points: #{max_HP}"
   end
 end
