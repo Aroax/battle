@@ -21,8 +21,8 @@ describe Game do
 
    describe '#attack' do
     it 'damages the player' do
-      expect(player_2).to receive(:receive_damage)
-      game.attack(player_2)
+      expect(game.player_2).to receive(:take_damage)
+      game.attack(game.player_2)
     end
   end
 end
