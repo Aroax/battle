@@ -1,15 +1,15 @@
 
 <div>
-  <h2><%= @player_1_name%></h2>   <h3>(Hit points: <%= @player_1_HP %>)</h3>
+  <h2><%= @game.player_1.name %></h2>   <h3>(Hit points: <%= @game.player_1.hit_points %>)</h3>
   <p>
   <h3>vs.<h3>
   <p>
-  <h2><%= @player_2_name%></h2>   <h3>(Hit points: <%= @player_2_HP %>)</h3>
+  <h2><%= @game.player_2.name %></h2>   <h3>(Hit points: <%= @game.player_2.hit_points %>)</h3>
 </div>
 <p>
 
   <div>
-    <%= @hit_message%>
+    <%= @hit_message %>
   </div>
 
   <p>

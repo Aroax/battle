@@ -1,5 +1,5 @@
 class Player
-  attr_reader :name, :hit_points, :alert
+  attr_reader :name, :hit_points
   attr_writer :hit_points
   MAX_HP = 100
   MIN_HP = 0
@@ -7,31 +7,16 @@ class Player
   def initialize(name, hitpoints=MAX_HP)
     @name = name
     @hit_points = hitpoints
-    @alert = ""
-  end
-
-  def attack(player)
-    chance = rand(1..10)
-    case chance
-    when 4..10
-      player.take_damage
-    when 1..3
-      player.miss
-    end
   end
 
   def take_damage
     damage = rand(10..20)
     @hit_points -= damage
-    update_alert("The attack hits for #{damage} HP!")
+    "The attack hits for #{damage} HP!"
   end
 
   def miss
-    update_alert("Oh no! The attack misses!")
-  end
-
-  def update_alert(string)
-    @alert = string
+    "Oh no! The attack misses!"
   end
 
   # damage = rand(10..20)
